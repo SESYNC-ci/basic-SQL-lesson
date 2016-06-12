@@ -1,1 +1,1 @@
-## https://sesync-ci.github.io/basic-SQL/
+## https://sesync-ci.github.io/basic-SQL
