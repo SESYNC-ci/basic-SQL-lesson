@@ -1,4 +1,4 @@
-baseurl: '/basic-SQL'
+baseurl: '/basic-SQL-lesson'
 defaults:
   -
     scope:
