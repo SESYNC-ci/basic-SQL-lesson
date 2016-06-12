@@ -1,5 +1,4 @@
 ---
-layout: default
 ---
 
 Databases using SQL in R
@@ -31,7 +30,9 @@ How are relational databases different?
  	   
 When to consider a relational design
 -------------------------------------
+
 ### If you want to...
+
 * link data classified or measured at multiple levels (e.g., plots, surveys, and species)
 * be able to ask multiple, ad-hoc questions about the data and aggregate and group it in different ways
 * enforce relationships between data elements
