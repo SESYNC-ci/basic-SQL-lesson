@@ -15,10 +15,10 @@ Connecting to the data
 -----------------------
 Recall the portal mammals database is available on pgstudio.research.sesync.org
 
-Database Host: localhost
-Database Name: portal
-Username: student
-Password: synthesis
+	Database Host: localhost
+	Database Name: portal
+	Username: student
+	Password: synthesis
 
 
 Basic queries
@@ -270,6 +270,7 @@ have used a field name in a non-join query, we can use *table.colname*
 For example, what if we wanted information on when individuals of each
 species were captured, but instead of their species ID we wanted their
 actual species names.
+
 	SELECT surveys.year, surveys.month, surveys.day, species.genus, species.species
 	FROM surveys
 	JOIN species ON surveys.species_id = species.species_id;
@@ -279,6 +280,7 @@ actual species names.
 
 Joins can be combined with sorting, filtering, and aggregation.  So, if we
 wanted average mass of the individuals on each type of plot, we could use
+
 	SELECT plots.plot_type, AVG(surveys.weight)
 	FROM surveys
 	JOIN plots
@@ -326,16 +328,7 @@ We can also add rows to an existing table using dbWriteTable
 Once we're done with a session, it's good practice to close the connection because there is a limit to the total number of connections the server can support at any one time.
 
 	dbDisconnect(con)	
-	
------------------------
-Recall the portal mammals database is available on pgstudio.research.sesync.org
-
-Database Host: localhost
-Database Name: portal
-Username: student
-Password: synthesis
-
-	
+		
 	   
 Additional Resources and Information
 ------------------------------------
