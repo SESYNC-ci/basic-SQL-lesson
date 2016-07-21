@@ -11,34 +11,9 @@ SQL
 SQL (Structured Query Language) is a high-level language for interacting with relational databases. 
 Commands use intuitive English words but can be strung together and nested in powerful ways.
 
-Database Design
----------------
-1. Order doesn't matter
-2. Every row-column combination contains a single *atomic* value, i.e., not
-   containing parts we might want to work with separately.
-3. One field per type of information	
-4. No redundant information
-     * Split into separate tables with one table per class of information
-	 * Needs an identifier in common between tables – shared column - to
-       reconnect (foreign key).
-   
-The data
---------
-This is data on a small mammal community in southern Arizona over the last 35
-years.  This is part of a larger project studying the effects of rodents and
-ants on the plant community.  The rodents are sampled on a series of 24 plots,
-with different experimental manipulations of which rodents are allowed to access
-the plots.
-
-This is a real dataset that has been used in over 100 publications.  It's been
-simplified just a little bit for the workshop, but you can download the
-[full dataset](http://esapubs.org/archive/ecol/E090/118/) and work with it using
-exactly the same tools here.
-
-
 Connecting to the data
 -----------------------
-The portal mammals database is available on pgstudio.research.sesync.org
+Recall the portal mammals database is available on pgstudio.research.sesync.org
 
 Database Host: localhost
 Database Name: portal
@@ -48,12 +23,6 @@ Password: synthesis
 
 Basic queries
 -------------
-
-Let's start by using the **surveys** table.
-Here we have data on every individual that was captured at the site,
-including when they were captured, what plot they were captured on,
-their species ID, sex and weight in grams.
-
 Let’s write a SQL query that selects only the year column from the surveys
 table.
 
@@ -174,19 +143,19 @@ Sorting
 We can also sort the results of our queries by using ORDER BY.
 For simplicity, let’s go back to the species table and alphabetize it by taxa.
 
-    dbGetQuery(con, "SELECT * FROM species ORDER BY taxa ASC;")
+	"SELECT * FROM species ORDER BY taxa ASC;
 
 The keyword ASC tells us to order it in Ascending order.
 We could alternately use DESC to get descending order.
 
-    dbGetQuery(con, "SELECT * FROM species ORDER BY taxa DESC;")
+    SELECT * FROM species ORDER BY taxa DESC;
 
 ASC is the default.
 
 We can also sort on several fields at once.
 To truly be alphabetical, we might want to order by genus then species.
 
-    dbGetQuery(con, "SELECT * FROM species ORDER BY genus ASC, species ASC;")
+    SELECT * FROM species ORDER BY genus ASC, species ASC;
 
 ***Exercise: Write a query that returns
              year, species, and weight in kg from the surveys table, sorted with
@@ -200,7 +169,7 @@ Another note for ordering. We don’t actually have to display a column to sort 
 it.  For example, let’s say we want to order by the species ID, but we only want
 to see genus and species.
 
-    dbGetQuery(con, "SELECT genus, species FROM species ORDER BY species_id ASC;")
+    SELECT genus, species FROM species ORDER BY species_id ASC;
 
 We can do this because sorting occurs earlier in the computational pipeline than
 field selection.
@@ -256,7 +225,7 @@ using a GROUP BY clause
 
     SELECT species_ID, COUNT(*)
     FROM surveys
-    GROUP BY species_ID;")
+    GROUP BY species_ID;
 					 
 					 
 GROUP BY tells SQL what field or fields we want to use to aggregate the data.
@@ -276,7 +245,6 @@ captured, ordered by the count
     FROM surveys
     GROUP BY species_id
     ORDER BY COUNT(*);
-
 
 Joins
 -----
@@ -317,6 +285,52 @@ wanted average mass of the individuals on each type of plot, we could use
 	ON surveys.plot = plots.plot_id
 	GROUP BY plots.plot_type;
 	
+
+Using SQL from R
+----------------
+R, like most major programming languages, has a library for interacting with SQL databases of various kinds. 
+
+To connect to a postgresql database, open RStudio and install/load the RPostgreSQL package.
+
+	install.packages("RPostgreSQL")
+	library(RPostgreSQL)
+
+We need to "open a connection" to the database so that R can communicate with it. This will serve as a pipeline to send data back and forth.
+It identifies which databsae we are using, where it lives, and verifies our credentials (user/pwd).
+
+    drv <- dbDriver("PostgreSQL")
+	dbHost <- "pgstudio.research.sesync.org"
+	dbUser <- "student"
+	dbName <- "portal"
+	
+	con <- dbConnect(drv, user=dbUser, host=dbHost, dbname = dbName, password=.rs.askForPassword("Enter password:"))
+	
+Now we can use this connection to read the output of any SQL query directly into a dataframe in R
+    surv <- dbGetQuery(con, "SELECT * FROM surveys WHERE year > 2000;")
+
+We can also write data into the database from R. dbWriteTable can be used to create a new table.
+	d <- data.frame(x=letters, y=1:26)
+	dbWriteTable(con, "mks", d )
+	
+We can check the results in a number of ways, including looking in pgstudio or querying through ROUND
+	dbGetQuery(con,"select * from mks;")	
+	
+We can also add rows to an existing table using dbWriteTable
+	d2<-data.frame(x="AA",y=27)
+	dbWriteTable(con, "mks", d2, append=T)
+
+Once we're done with a session, it's good practice to close the connection because there is a limit to the total number of connections the server can support at any one time	
+	dbDisconnect(con)	
+	
+-----------------------
+Recall the portal mammals database is available on pgstudio.research.sesync.org
+
+Database Host: localhost
+Database Name: portal
+Username: student
+Password: synthesis
+
+	
 	   
 Additional Resources and Information
 ------------------------------------
@@ -325,6 +339,8 @@ Additional Resources and Information
   All of these can employ the concepts of calculation, filtering, aggregation, and joining in their execution.
  
 * Database design tips: https://www.periscope.io/blog/better-sql-schema.html
+
+* Documentation for the RPostgreSQL package: https://cran.r-project.org/web/packages/RPostgreSQL/RPostgreSQL.pdf
  
 	   
 Adapted by Mary Shelley for SESYNC ci-spring 2016 from Data Carpentry SQL lesson, authored by Ethan White
