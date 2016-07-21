@@ -306,20 +306,25 @@ It identifies which databsae we are using, where it lives, and verifies our cred
 	con <- dbConnect(drv, user=dbUser, host=dbHost, dbname = dbName, password=.rs.askForPassword("Enter password:"))
 	
 Now we can use this connection to read the output of any SQL query directly into a dataframe in R
+
     surv <- dbGetQuery(con, "SELECT * FROM surveys WHERE year > 2000;")
 
 We can also write data into the database from R. dbWriteTable can be used to create a new table.
+
 	d <- data.frame(x=letters, y=1:26)
 	dbWriteTable(con, "mks", d )
 	
 We can check the results in a number of ways, including looking in pgstudio or querying through ROUND
+
 	dbGetQuery(con,"select * from mks;")	
 	
 We can also add rows to an existing table using dbWriteTable
+
 	d2<-data.frame(x="AA",y=27)
 	dbWriteTable(con, "mks", d2, append=T)
 
-Once we're done with a session, it's good practice to close the connection because there is a limit to the total number of connections the server can support at any one time	
+Once we're done with a session, it's good practice to close the connection because there is a limit to the total number of connections the server can support at any one time.
+
 	dbDisconnect(con)	
 	
 -----------------------
