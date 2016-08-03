@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Index</title>
+  <meta name="description" content="Databases using SQL in R">
+
+  <style type="text/css">
+
+    body {
+  background-color: #fff;
+  padding:50px;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#727272;
+  font-weight:400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  color:#393939;
+}
+
+h3, h4, h5, h6 {
+  color:#494949;
+}
+
+a {
+  color:#39c;
+  text-decoration:none;
+}
+
+a:hover {
+  color:#069;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.3em;
+  display:block;
+}
+
+a:hover small {
+  color:#777;
+}
+
+.wrapper {
+  width:860px;
+  margin:0 auto;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+}
+
+header {
+  width:270px;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+header ul {
+  list-style:none;
+  height:40px;
+  padding:0;
+  background: #f4f4f4;
+  border-radius:5px;
+  border:1px solid #e0e0e0;
+  width:270px;
+}
+
+header li {
+  width:89px;
+  float:left;
+  border-right:1px solid #e0e0e0;
+  height:40px;
+}
+
+header li:first-child a {
+  border-radius:5px 0 0 5px;
+}
+
+header li:last-child a {
+  border-radius:0 5px 5px 0;
+}
+
+header ul a {
+  line-height:1;
+  font-size:11px;
+  color:#999;
+  display:block;
+  text-align:center;
+  padding-top:6px;
+  height:34px;
+}
+
+header ul a:hover {
+  color:#999;
+}
+
+header ul a:active {
+  background-color:#f0f0f0;
+}
+
+strong {
+  color:#222;
+  font-weight:700;
+}
+
+header ul li + li + li {
+  border-right:none;
+  width:89px;
+}
+
+header ul a strong {
+  font-size:14px;
+  display:block;
+  color:#222;
+}
+
+section {
+  width:500px;
+  float:right;
+  padding-bottom:50px;
+}
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+@media print, screen and (max-width: 960px) {
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+  header {
+    padding-right:320px;
+  }
+
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+
+  header a small {
+    display:inline;
+  }
+
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+
+  header {
+    padding:0;
+  }
+
+  header ul, header p.view {
+    position:static;
+  }
+
+  pre, code {
+    word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+
+  header ul {
+    width:99%;
+  }
+
+  header li, header ul li + li + li {
+    width:33%;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+
+  </style>
+
+</head>
+
+
+  <body>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="databases-using-sql-in-r">Databases using SQL in R</h1>
+
+<p>Instructor: Mary Shelley</p>
+
+<h2 id="sql">SQL</h2>
+<p>SQL (Structured Query Language) is a high-level language for interacting with relational databases. 
+Commands use intuitive English words but can be strung together and nested in powerful ways.</p>
+
+<h2 id="connecting-to-the-data">Connecting to the data</h2>
+<p>Recall the portal mammals database is available on pgstudio.research.sesync.org</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Database Host: localhost
+Database Name: portal
+Username: student
+Password: synthesis
+</code></pre>
+</div>
+
+<h2 id="basic-queries">Basic queries</h2>
+<p>Let’s write a SQL query that selects only the year column from the surveys
+table.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT year FROM surveys;
+</code></pre>
+</div>
+
+<p>A note on style: we have capitalized the words SELECT and FROM because they are SQL keywords.
+Unlike R, SQL is case insensitive, but it helps for readability – good style.</p>
+
+<p>If we want information about other fields, we can just add a new column to the list of fields,
+right after SELECT:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT year, month, day FROM surveys;
+</code></pre>
+</div>
+
+<p>Or we can select all of the columns in a table using the wildcard *</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys;
+</code></pre>
+</div>
+
+<h3 id="limit">Limit</h3>
+
+<p>We can use the LIMIT statement to select only the first few rows. This is particularly helpful when getting
+a feel for very large tables.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT year, species_id FROM surveys LIMIT 10;
+</code></pre>
+</div>
+
+<h3 id="unique-values">Unique values</h3>
+
+<p>If we want only the unique values so that we can quickly see what species have
+been sampled we use <code class="highlighter-rouge">DISTINCT</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT species_id FROM surveys;
+</code></pre>
+</div>
+
+<p>If we select more than one column, then the distinct pairs of values are
+returned</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT DISTINCT year, species FROM surveys;
+</code></pre>
+</div>
+
+<h3 id="calculated-values">Calculated values</h3>
+
+<p>We can also do calculations with the values in a query.
+For example, if we wanted to look at the mass of each individual
+on different dates, but we needed it in kg instead of g we would use</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT year, month, day, weight/1000.0 FROM surveys;
+</code></pre>
+</div>
+
+<p>When we run the query, the expression <code class="highlighter-rouge">weight / 1000.0</code> is evaluated for each row
+and appended to that row, in a new column.  Expressions can use any fields, any
+arithmetic operators (+ - * /) and a variety of built-in functions. For
+example, we could round the values to make them easier to read.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT plot_id, species_id, sex, weight, ROUND(weight / 1000.0, 2) FROM surveys;
+</code></pre>
+</div>
+
+<p>The underlying data in the wgt column of the table does not change. The query, which exists separately from the data,
+simply displays the calculation we requested in the query result window pane. You can assign the new column a name by typing “AS weight_kg” after the expression</p>
+
+<p><strong><em>EXERCISE: Write a query that returns
+             the year, month, day, species ID, and weight in mg</em></strong></p>
+
+<h2 id="filtering">Filtering</h2>
+
+<p>Databases can also filter data – selecting only the data meeting certain
+criteria.  For example, let’s say we only want data for the species Dipodomys
+merriami, which has a species code of DM.  We need to add a WHERE clause to our
+query:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys WHERE species_id='DM';
+</code></pre>
+</div>
+
+<p>We can do the same thing with numbers.
+Here, we only want the data since 2000:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys WHERE year &gt;= 2000;
+</code></pre>
+</div>
+
+<p>We can use more sophisticated conditions by combining tests with AND and OR.
+For example, suppose we want the data on Dipodomys merriami starting in the year
+2000:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys WHERE (year &gt;= 2000) AND (species_id = 'DM');
+</code></pre>
+</div>
+
+<p>Note that the parentheses aren’t needed, but again, they help with readability.
+They also ensure that the computer combines AND and OR in the way that we
+intend.</p>
+
+<p>If we wanted to get data for any of the Dipodomys species,
+which have species codes DM, DO, and DS we could combine the tests using OR:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys WHERE (species_id = "DM") OR (species_id = "DO") OR (species_id = "DS");	
+</code></pre>
+</div>
+
+<h2 id="building-more-complex-queries">Building more complex queries</h2>
+
+<p>Now, lets combine the above queries to get data for the 3 Dipodomys species from
+the year 2000 on.  This time, let’s use IN as one way to make the query easier
+to understand.  It is equivalent to saying <code class="highlighter-rouge">WHERE (species = "DM") OR (species
+= "DO") OR (species = "DS")</code>, but reads more neatly:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM surveys WHERE (year &gt;= 2000) AND (species IN ("DM", "DO", "DS"));
+
+SELECT *
+FROM surveys
+WHERE (year &gt;= 2000) AND (species IN ("DM", "DO", "DS"));
+</code></pre>
+</div>
+
+<p>We started with something simple, then added more clauses one by one, testing
+their effects as we went along.  For complex queries, this is a good strategy,
+to make sure you are getting what you want.  Sometimes it might help to take a
+subset of the data that you can easily see in a temporary database to practice
+your queries on before working on a larger or more complicated database.</p>
+
+<p><strong><em>EXERCISE: Write a query that returns
+   The day, month, year, species ID, and weight (in kg) for
+   individuals caught on Plot 1 that weigh more than 75 g</em></strong></p>
+
+<h2 id="sorting">Sorting</h2>
+
+<p>We can also sort the results of our queries by using ORDER BY.
+For simplicity, let’s go back to the species table and alphabetize it by taxa.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"SELECT * FROM species ORDER BY taxa ASC;
+</code></pre>
+</div>
+
+<p>The keyword ASC tells us to order it in Ascending order.
+We could alternately use DESC to get descending order.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM species ORDER BY taxa DESC;
+</code></pre>
+</div>
+
+<p>ASC is the default.</p>
+
+<p>We can also sort on several fields at once.
+To truly be alphabetical, we might want to order by genus then species.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT * FROM species ORDER BY genus ASC, species ASC;
+</code></pre>
+</div>
+
+<p><strong><em>Exercise: Write a query that returns
+             year, species, and weight in kg from the surveys table, sorted with
+             the largest weights at the top</em></strong></p>
+
+<h2 id="order-of-execution">Order of execution</h2>
+
+<p>Another note for ordering. We don’t actually have to display a column to sort by
+it.  For example, let’s say we want to order by the species ID, but we only want
+to see genus and species.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT genus, species FROM species ORDER BY species_id ASC;
+</code></pre>
+</div>
+
+<p>We can do this because sorting occurs earlier in the computational pipeline than
+field selection.</p>
+
+<p>The computer is basically doing this:</p>
+
+<ol>
+  <li>Filtering rows according to WHERE</li>
+  <li>Sorting results according to ORDER BY</li>
+  <li>Displaying requested columns or expressions.</li>
+</ol>
+
+<h2 id="order-of-clauses">Order of clauses</h2>
+
+<p>The order of the clauses when we write a query is dictated by SQL: SELECT, FROM, WHERE, ORDER BY
+and we often write each of them on their own line for readability.</p>
+
+<p><strong><em>Exercise: Let’s try to combine what we’ve learned so far in a single query.
+Using the surveys table write a query to display the three date
+fields, species ID, and weight in kilograms (rounded to two decimal places), for
+rodents captured in 1999, ordered alphabetically by the species ID.</em></strong></p>
+
+<h2 id="aggregation">Aggregation</h2>
+
+<p>Aggregation allows us to group records based on field values and
+calculate combined values in groups (or for a table as a whole).</p>
+
+<p>Let’s go to the surveys table and find out how many individuals there are.
+Using the wildcard simply counts the number of records (rows)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT COUNT(*) FROM surveys;
+</code></pre>
+</div>
+
+<p>We can also find out how much all of those individuals weigh.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT COUNT(*), SUM(weight) FROM surveys;
+</code></pre>
+</div>
+
+<p><strong><em>Do you think you could output this value in kilograms, rounded to 3 decimal
+   places?</em></strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT ROUND(SUM(weight)/1000.0, 3) FROM surveys;
+</code></pre>
+</div>
+
+<p>There are many other aggregate functions included in SQL including
+MAX, MIN, and AVG.</p>
+
+<p><strong><em>From the surveys table, can we use one query to output the total weight,
+   average weight, and the min and max weights? How about the range of weight?</em></strong></p>
+
+<p>Now, let’s see how many individuals were counted in each species. We do this
+using a GROUP BY clause</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT species_ID, COUNT(*)
+FROM surveys
+GROUP BY species_ID;
+</code></pre>
+</div>
+
+<p>GROUP BY tells SQL what field or fields we want to use to aggregate the data.
+If we want to group by multiple fields, we give GROUP BY a comma separated list.</p>
+
+<p><strong><em>EXERCISE: Write queries that return:</em></strong>
+<strong><em>1. How many individuals were counted in each year</em></strong>
+<strong>*2. Average weight of each species in each year</strong>
+Hint: To exclude missing data from the average, we can use the SQL test for missing IS NULL (or in this case, IS NOT NULL)</p>
+
+<p>We can order the results of our aggregation by a specific column, including the
+aggregated column.  Let’s count the number of individuals of each species
+captured, ordered by the count</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT species_id, COUNT(*)
+FROM surveys
+GROUP BY species_id
+ORDER BY COUNT(*);
+</code></pre>
+</div>
+
+<h2 id="joins">Joins</h2>
+
+<p>To combine data from two tables we use the SQL JOIN command, which comes after
+the FROM command.</p>
+
+<p>We also need to tell the computer which columns provide the link between the two
+tables using the word ON.  We want to join data with the same
+species codes.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT *
+FROM surveys
+JOIN species ON surveys.species_id = species.species_id;")
+</code></pre>
+</div>
+
+<p>ON is like WHERE, it filters things out according to a test condition.  We use
+the table.colname format to tell the manager what column in which table we are
+referring to.</p>
+
+<p>We often won’t want all of the fields from both tables, so anywhere we would
+have used a field name in a non-join query, we can use <em>table.colname</em></p>
+
+<p>For example, what if we wanted information on when individuals of each
+species were captured, but instead of their species ID we wanted their
+actual species names.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT surveys.year, surveys.month, surveys.day, species.genus, species.species
+FROM surveys
+JOIN species ON surveys.species_id = species.species_id;
+</code></pre>
+</div>
+
+<p><strong><em>Exercise: Write a query that returns the genus, the species, and the weight
+   of every individual captured at the site</em></strong></p>
+
+<p>Joins can be combined with sorting, filtering, and aggregation.  So, if we
+wanted average mass of the individuals on each type of plot, we could use</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SELECT plots.plot_type, AVG(surveys.weight)
+FROM surveys
+JOIN plots
+ON surveys.plot = plots.plot_id
+GROUP BY plots.plot_type;
+</code></pre>
+</div>
+
+<h2 id="using-sql-from-r">Using SQL from R</h2>
+<p>R, like most major programming languages, has a library for interacting with SQL databases of various kinds.</p>
+
+<p>To connect to a postgresql database, open RStudio and install/load the RPostgreSQL package.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>install.packages("RPostgreSQL")
+library(RPostgreSQL)
+</code></pre>
+</div>
+
+<p>We need to “open a connection” to the database so that R can communicate with it. This will serve as a pipeline to send data back and forth.
+It identifies which databsae we are using, where it lives, and verifies our credentials (user/pwd).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>drv &lt;- dbDriver("PostgreSQL")
+dbHost &lt;- "pgstudio.research.sesync.org"
+dbUser &lt;- "student"
+dbName &lt;- "portal"
+
+con &lt;- dbConnect(drv, user=dbUser, host=dbHost, dbname = dbName, password=.rs.askForPassword("Enter password:"))
+</code></pre>
+</div>
+
+<p>Now we can use this connection to read the output of any SQL query directly into a dataframe in R</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>surv &lt;- dbGetQuery(con, "SELECT * FROM surveys WHERE year &gt; 2000;")
+</code></pre>
+</div>
+
+<p>We can also write data into the database from R. dbWriteTable can be used to create a new table.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>d &lt;- data.frame(x=letters, y=1:26)
+dbWriteTable(con, "mks", d )
+</code></pre>
+</div>
+
+<p>We can check the results in a number of ways, including looking in pgstudio or querying through ROUND</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dbGetQuery(con,"select * from mks;")	
+</code></pre>
+</div>
+
+<p>We can also add rows to an existing table using dbWriteTable</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>d2&lt;-data.frame(x="AA",y=27)
+dbWriteTable(con, "mks", d2, append=T)
+</code></pre>
+</div>
+
+<p>Once we’re done with a session, it’s good practice to close the connection because there is a limit to the total number of connections the server can support at any one time.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dbDisconnect(con)	
+</code></pre>
+</div>
+
+<h2 id="additional-resources-and-information">Additional Resources and Information</h2>
+<ul>
+  <li>
+    <p>A few types of queries in SQL, in addition to SELECT, will cover most of what you might want to do.
+UPDATE change column values; CREATE generates  a new, blank table; DELETE removes rows from a table. 	 <br />
+All of these can employ the concepts of calculation, filtering, aggregation, and joining in their execution.</p>
+  </li>
+  <li>
+    <p>Database design tips: https://www.periscope.io/blog/better-sql-schema.html</p>
+  </li>
+  <li>
+    <p>Documentation for the RPostgreSQL package: https://cran.r-project.org/web/packages/RPostgreSQL/RPostgreSQL.pdf</p>
+  </li>
+</ul>
+
+<p>Adapted by Mary Shelley for SESYNC ci-spring 2016 from Data Carpentry SQL lesson, authored by Ethan White
+https://github.com/datacarpentry/archive-datacarpentry/blob/master/lessons/sql/sql.md</p>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
