@@ -1,11 +1,6 @@
 ---
 ---
 
-Databases using SQL in R
-==========================
-
-Instructor: Mary Shelley
-
 Introduction
 ------------
 * Relational databases formalize and can enforce concepts of tidy data

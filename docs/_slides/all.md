@@ -1,11 +1,6 @@
 ---
 ---
 
-Databases using SQL in R
-==========================
-
-Instructor: Mary Shelley
-
 SQL 
 ------------------
 SQL (Structured Query Language) is a high-level language for interacting with relational databases. 
